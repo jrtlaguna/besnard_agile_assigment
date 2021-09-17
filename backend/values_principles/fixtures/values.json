@@ -1,0 +1,34 @@
+[
+  {
+    "model": "values_principles.value",
+    "pk": 1,
+    "fields": {
+      "title": "Individuals and interactions over processes and tools",
+      "content": "This value of the Agile manifesto focuses on giving importance to communication with the clients. There are several things a client may want to ask and it is the responsibility of the team members to ensure that all questions and suggestions of the clients are promptly dealt with."
+    }
+  },
+  {
+    "model": "values_principles.value",
+    "pk": 2,
+    "fields": {
+      "title": "Working product over comprehensive documentation",
+      "content": "In the past, more focus used to be on proper documentation of every aspect of the project. There were several times when this was done at the expense of the final product. The Agile values dictate that the first and foremost duty of the project team is completing the final deliverables as identified by the customers."
+    }
+  },
+  {
+    "model": "values_principles.value",
+    "pk": 3,
+    "fields": {
+      "title": "Customer collaboration over contract negotiation",
+      "content": "Agile principles require customers to be involved in all phases of the project. The Waterfall approach or Traditional methodologies only allow customers to negotiate before and after the project. This used to result in wastage of both time and resources. If the customers are kept in the loop during the development process, team members can ensure that the final product meets all the requirements of the client."
+    }
+  },
+  {
+    "model": "values_principles.value",
+    "pk": 4,
+    "fields": {
+      "title": "Responding to change over following a plan",
+      "content": "Contrary to the management methodologies of the past, Agile values are against using elaborate plans before the start of the project and continue sticking to them no matter what. Circumstances change and sometimes customers demand extra features in the final product that may change the project scope. In these cases, project managers and their teams must adapt quickly in order to deliver a quality product and ensure 100% customer satisfaction."
+    }
+  }
+]

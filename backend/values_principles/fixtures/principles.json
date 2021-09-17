@@ -1,0 +1,98 @@
+[
+  {
+    "model": "values_principles.principle",
+    "pk": 1,
+    "fields": {
+      "title": "Customer satisfaction through early and continuous software delivery",
+      "content": "Customers are happier when they receive working software at regular intervals, rather than waiting extended periods of time between releases."
+    }
+  },
+  {
+    "model": "values_principles.principle",
+    "pk": 2,
+    "fields": {
+      "title": "Accommodate changing requirements throughout the development process",
+      "content": "The ability to avoid delays when a requirement or feature request changes."
+    }
+  },
+  {
+    "model": "values_principles.principle",
+    "pk": 3,
+    "fields": {
+      "title": "Frequent delivery of working software",
+      "content": "Scrum accommodates this principle since the team operates in software sprints or iterations that ensure regular delivery of working software."
+    }
+  },
+  {
+    "model": "values_principles.principle",
+    "pk": 4,
+    "fields": {
+      "title": "Collaboration between the business stakeholders and developers throughout the project",
+      "content": "Better decisions are made when the business and technical team are aligned."
+    }
+  },
+  {
+    "model": "values_principles.principle",
+    "pk": 5,
+    "fields": {
+      "title": "Support, trust, and motivate the people involved",
+      "content": "Motivated teams are more likely to deliver their best work than unhappy teams."
+    }
+  },
+  {
+    "model": "values_principles.principle",
+    "pk": 6,
+    "fields": {
+      "title": "Enable face-to-face interactions",
+      "content": "Communication is more successful when development teams are co-located."
+    }
+  },
+  {
+    "model": "values_principles.principle",
+    "pk": 7,
+    "fields": {
+      "title": "Working software is the primary measure of progress",
+      "content": "Delivering functional software to the customer is the ultimate factor that measures progress."
+    }
+  },
+  {
+    "model": "values_principles.principle",
+    "pk": 8,
+    "fields": {
+      "title": "Agile processes to support a consistent development pace",
+      "content": "Teams establish a repeatable and maintainable speed at which they can deliver working software, and they repeat it with each release."
+    }
+  },
+  {
+    "model": "values_principles.principle",
+    "pk": 9,
+    "fields": {
+      "title": "Attention to technical detail and design enhances agility",
+      "content": "The right skills and good design ensures the team can maintain the pace, constantly improve the product, and sustain change."
+    }
+  },
+  {
+    "model": "values_principles.principle",
+    "pk": 10,
+    "fields": {
+      "title": "Simplicity",
+      "content": "Develop just enough to get the job done for right now."
+    }
+  },
+  {
+    "model": "values_principles.principle",
+    "pk": 11,
+    "fields": {
+      "title": "Self-organizing teams encourage great architectures, requirements, and designs",
+      "content": "Skilled and motivated team members who have decision-making power, take ownership, communicate regularly with other team members, and share ideas that deliver quality products."
+    }
+  },
+  {
+    "model": "values_principles.principle",
+    "pk": 12,
+    "fields": {
+      "title": "Regular reflections on how to become more effective",
+      "content": "Self-improvement, process improvement, advancing skills, and techniques help team members work more efficiently."
+    }
+  }
+]
