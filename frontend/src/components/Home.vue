@@ -17,7 +17,11 @@
     <div class="content-list">
       <div class="d-flex justify-content-between mx-4">
         <h3>Values</h3>
-        <button class="btn btn-outline-primary" @click="addContent('value')">
+        <button
+          class="btn btn-outline-primary"
+          id="add-value"
+          @click="addContent('value')"
+        >
           <i class="bi bi-plus-circle" /> Add Value
         </button>
       </div>
@@ -34,6 +38,7 @@
         <h3>Principles</h3>
         <button
           class="btn btn-outline-primary"
+          id="add-principle"
           @click="addContent('principle')"
         >
           <i class="bi bi-plus-circle" /> Add Principle
@@ -51,6 +56,7 @@
 
 <script>
 import { ref } from "vue";
+import axios from "axios";
 import ContentList from "@/components/ContentList.vue";
 import ModalForm from "@/components/ModalForm";
 
@@ -75,20 +81,17 @@ export default {
   methods: {
     async fetchPrinciples() {
       try {
-        const res = await fetch("api/values_principles/principles/");
-        const data = await res.json();
+        const res = await axios.get("api/values_principles/principles/");
 
-        return data;
+        return res.data;
       } catch (e) {
         alert(e);
       }
     },
     async fetchValues() {
       try {
-        const res = await fetch("/api/values_principles/values/");
-        const data = await res.json();
-
-        return data;
+        const res = await axios.get("/api/values_principles/values/");
+        return res.data;
       } catch (e) {
         alert(e);
       }
@@ -152,11 +155,6 @@ export default {
 </script>
 
 <style scoped>
-#app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .container {
   box-shadow: 0px 3px 3px 1.5px #888888;
 }

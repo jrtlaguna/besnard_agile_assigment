@@ -26,5 +26,9 @@ export default {
   padding-top: 5rem;
   margin-left: 6rem;
   margin-right: 6rem;
+  @media only screen and (max-width: 600px) {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
 }
 </style>

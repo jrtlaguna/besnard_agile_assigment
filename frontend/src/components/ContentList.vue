@@ -1,19 +1,17 @@
 <template>
   <div class="title">
-    <div>
-      <div
-        @click="$emit('view-content', content, type)"
-        class="content-card"
-        v-bind:class="[this.type == 'principle' ? 'principle' : '']"
-        :key="content.id"
-        v-for="content in contents"
-      >
-        <div>
-          <h3>{{ content.title }}</h3>
-        </div>
-        <div>
-          <p class="content">{{ content.content }}</p>
-        </div>
+    <div
+      @click="$emit('view-content', content, type)"
+      class="content-card"
+      v-bind:class="[this.type == 'principle' ? 'principle' : '']"
+      :key="content.id"
+      v-for="content in contents"
+    >
+      <div>
+        <h3>{{ content.title }}</h3>
+      </div>
+      <div>
+        <p class="content">{{ content.content }}</p>
       </div>
     </div>
   </div>
@@ -37,10 +35,6 @@ h3 {
 .skeleton {
   opacity: 0.7;
   animation: skeleton-loading 1s linear infinite alternate;
-}
-.card {
-  border-left: 1rem solid $principle_color;
-  height: 20rem;
 }
 .title {
   border-radius: 25px;

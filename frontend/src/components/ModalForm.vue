@@ -6,11 +6,12 @@
     >
       x
     </button>
-    <form class="form-body">
+    <form @submit.prevent="" class="form-body">
       <h3 class="text-uppercase">Add {{ this.type }}</h3>
       <div class="form-group">
         <label>Title</label>
         <input
+          id="titleInput"
           style="font-weight: bold;"
           type="text"
           class="form-control"
@@ -39,7 +40,11 @@
           >
             Update
           </button>
-          <button class="btn btn-outline-danger" @click.prevent="deleteContent">
+          <button
+            id="deleteButton"
+            class="btn btn-outline-danger"
+            @click.prevent="deleteContent"
+          >
             Delete
           </button>
         </div>
@@ -49,21 +54,19 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "ModalForm",
   data() {
     return {
-      title: String,
-      content: String,
-      type: String,
+      title: "",
+      content: "",
+      type: "",
       id: Number,
     };
   },
-  props: {
-    data: Object,
-  },
   methods: {
-    async submit(action) {
+    async submit(action = "create") {
       let res = null;
       const content = {
         title: this.title,
@@ -71,42 +74,32 @@ export default {
       };
       try {
         if (action == "create") {
-          res = await fetch(`api/values_principles/${this.type}s/`, {
-            method: "POST",
-            headers: {
-              "Content-type": "application/json",
-            },
-            body: JSON.stringify(content),
-          });
+          res = await axios.post(
+            `api/values_principles/${this.type}s/`,
+            content
+          );
+          this.$emit("refresh-data", this.type, res.data, action);
         } else {
-          res = await fetch(`api/values_principles/${this.type}s/${this.id}/`, {
-            method: "PUT",
-            headers: {
-              "Content-type": "application/json",
-            },
-            body: JSON.stringify(content),
-          });
+          res = await axios.put(
+            `api/values_principles/${this.type}s/${this.id}/`,
+            content
+          );
+          this.$emit("refresh-data", this.type, res.data, action);
         }
-      } catch (e) {
-        alert(e);
+      } catch (err) {
+        alert(err);
       }
-      const data = await res.json();
-      alert(`Successfully ${action}d ${this.type}.`);
-      this.$emit("refresh-data", this.type, data, action);
     },
     async deleteContent() {
       try {
-        const res = await fetch(
-          `api/values_principles/${this.type}s/${this.id}/`,
-          {
-            method: "DELETE",
-          }
+        const res = await axios.delete(
+          `api/values_principles/${this.type}s/${this.id}/`
         );
         if (res.status === 204) {
           this.$emit("remove-data", this.type, this.id);
         }
-      } catch (e) {
-        alert(e);
+      } catch (err) {
+        alert(err);
       }
     },
     viewData(data, type) {
@@ -133,9 +126,14 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
   padding-top: 0px;
+  button:first-child {
+    margin-left: auto;
+    margin-right: 2rem;
+  }
   &.form-group {
     margin-bottom: 3em;
   }
@@ -152,18 +150,29 @@ export default {
 }
 
 .form-body {
-  min-width: 50rem;
+  max-width: 200rem;
+  width: inherit;
 }
 .form-label {
   width: 60%;
   text-align: left;
 }
-.close-button {
-  position: fixed;
-  top: 18rem;
+/* .close-button {
+  position: absolute;
+  top: 16rem;
   right: 10rem;
   margin-right: auto;
-}
+  @media only screen and (min-width: 900px) {
+    right: 20rem;
+  }
+} */
+/* .close-button {
+  width: inherit;
+  position: absolute;
+  width: 100%;
+  top: 16rem;
+  right: 6rem;
+} */
 .form-group {
   margin-top: 1rem;
 }
