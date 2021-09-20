@@ -53,7 +53,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CORS_ORIGIN_ALLOWED_ALL = True
+CORS_ALLOW_ALL_ORIGINS = True #Handles CORS errors 
 
 ROOT_URLCONF = "agile.urls"
 

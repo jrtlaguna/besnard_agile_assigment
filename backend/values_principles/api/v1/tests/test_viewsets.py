@@ -14,6 +14,7 @@ class ValuesViewSetTestCase(APITestCase):
     def test_get_value(self):
         res = self.client.get(reverse("values-principles-v1:values-list"))
 
+        self.assertEqual(res.data[0].get("id"), self.value.id)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
 
     def test_get_value_detail(self):
@@ -54,6 +55,11 @@ class ValuesViewSetTestCase(APITestCase):
         )
         self.assertEqual(res.status_code, status.HTTP_204_NO_CONTENT)
 
+        res = self.client.get(
+            reverse("values-principles-v1:values-detail", kwargs={"pk": 1})
+        )
+        self.assertEqual(res.status_code, status.HTTP_404_NOT_FOUND)
+
 
 class PrinciplesViewSetTestCase(APITestCase):
     def setUp(self):
@@ -62,6 +68,7 @@ class PrinciplesViewSetTestCase(APITestCase):
     def test_get_value(self):
         res = self.client.get(reverse("values-principles-v1:principles-list"))
 
+        self.assertEqual(res.data[0].get("id"), self.principle.id)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
 
     def test_get_principle_detail(self):
@@ -104,3 +111,8 @@ class PrinciplesViewSetTestCase(APITestCase):
             reverse("values-principles-v1:principles-detail", kwargs={"pk": 1})
         )
         self.assertEqual(res.status_code, status.HTTP_204_NO_CONTENT)
+
+        res = self.client.get(
+            reverse("values-principles-v1:principles-detail", kwargs={"pk": 1})
+        )
+        self.assertEqual(res.status_code, status.HTTP_404_NOT_FOUND)
